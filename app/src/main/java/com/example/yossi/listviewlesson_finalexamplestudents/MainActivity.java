@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         tvId = v.findViewById(R.id.tvId);
         tvAvg = v.findViewById(R.id.tvAvg);
 
-        tvName.setText("Yossi");
+        tvName.setText("דני דנינו");
         tvId.setText("1234");
         tvAvg.setText("60.6");
 

@@ -6,13 +6,13 @@ public class Student {
     int mat,eng,cpu;
     double avg;
 
-    public Student(String name, String id, int mat, int eng, int cpu, double avg) {
+    public Student(String name, String id, int mat, int eng, int cpu) {
         this.name = name;
         this.id = id;
         this.mat = mat;
         this.eng = eng;
         this.cpu = cpu;
-        this.avg = avg;
+        calculateAvg();
     }
 
     public void setMat(int mat) {

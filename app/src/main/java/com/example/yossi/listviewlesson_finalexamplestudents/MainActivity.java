@@ -23,13 +23,7 @@ public class MainActivity extends AppCompatActivity {
         LayoutInflater layoutInflater = getLayoutInflater();
         View v = layoutInflater.inflate(R.layout.custom_layout,l1,false);
 
-        tvName = v.findViewById(R.id.tvName);
-        tvId = v.findViewById(R.id.tvId);
-        tvAvg = v.findViewById(R.id.tvAvg);
 
-        tvName.setText("דני דנינו");
-        tvId.setText("1234");
-        tvAvg.setText("60.6");
 
         l1.addView(v);
 

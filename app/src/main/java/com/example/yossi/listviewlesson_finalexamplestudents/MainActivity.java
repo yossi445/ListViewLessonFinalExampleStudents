@@ -1,20 +1,23 @@
 package com.example.yossi.listviewlesson_finalexamplestudents;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     ListView lv;
     ArrayList<Student> studentsList;
     StudentAdapter adapter;
+    Student lastSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +44,32 @@ public class MainActivity extends AppCompatActivity {
         adapter = new StudentAdapter(MainActivity.this,0,0,studentsList);
         lv.setAdapter(adapter);
 
+        lv.setOnItemClickListener(this);
 
 
 
+
+
+
+    }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+        lastSelected = adapter.getItem(position);
+        Intent intent = new Intent(this,EditStudent.class);
+
+        intent.putExtra("name",lastSelected.getName());
+        intent.putExtra("id",lastSelected.getId());
+        intent.putExtra("mat",lastSelected.getMat());
+        intent.putExtra("eng",lastSelected.getEng());
+        intent.putExtra("cpu",lastSelected.getCpu());
+        intent.putExtra("avg",lastSelected.getAvg());
+
+
+        startActivityForResult(intent,0);
 
     }
 }

@@ -1,5 +1,7 @@
 package com.example.yossi.listviewlesson_finalexamplestudents;
 
+import java.text.DecimalFormat;
+
 public class Student {
 
     String name,id;
@@ -54,6 +56,9 @@ public class Student {
     public void calculateAvg()
     {
         avg = (mat + eng + cpu)/3.0;
+        DecimalFormat df = new DecimalFormat("#.##");
+        avg = Double.valueOf(df.format(avg));
+
     }
 
 

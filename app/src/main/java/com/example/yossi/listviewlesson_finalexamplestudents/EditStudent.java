@@ -7,12 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class EditStudent extends AppCompatActivity implements View.OnClickListener {
 
     TextView tvName, tvId,tvAvg;
     EditText etMat, etEng, etCpu;
-    Button btnSave,btnCalc,btnCancel;
+    Button btnSave,btnCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +28,9 @@ public class EditStudent extends AppCompatActivity implements View.OnClickListen
         etMat = findViewById(R.id.etMat);
         etEng = findViewById(R.id.etEng);
 
-        btnCalc = findViewById(R.id.btnCalc);
         btnSave = findViewById(R.id.btnSave);
         btnCancel = findViewById(R.id.btnCancel);
 
-        btnCalc.setOnClickListener(this);
         btnSave.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
 
@@ -65,6 +64,30 @@ public class EditStudent extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
 
+
+        if(v == btnSave)
+        {
+            if(etMat.getText().toString().length() > 0 && etEng.getText().toString().length() > 0 && etCpu.getText().toString().length() > 0 )
+            {
+                Intent intent = new Intent();
+                intent.putExtra("mat",etMat.getText().toString());
+                intent.putExtra("eng",etEng.getText().toString());
+                intent.putExtra("cpu",etCpu.getText().toString());
+                setResult(RESULT_OK,intent);
+                finish();
+            }
+            else
+            {
+                Toast.makeText(this," אנא מלא את כל הציונים", Toast.LENGTH_LONG).show();
+
+            }
+
+        }
+        else if(v == btnCancel)
+        {
+            setResult(RESULT_CANCELED,null);
+            finish();
+        }
 
 
     }

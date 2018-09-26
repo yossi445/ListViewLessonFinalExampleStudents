@@ -1,6 +1,7 @@
 package com.example.yossi.listviewlesson_finalexamplestudents;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -70,6 +72,29 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         startActivityForResult(intent,0);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 0 && resultCode == RESULT_OK)
+        {
+            String mat = data.getExtras().getString("mat");
+            String eng = data.getExtras().getString("eng");
+            String cpu = data.getExtras().getString("cpu");
+
+            lastSelected.setMat(Integer.valueOf(mat));
+            lastSelected.setEng(Integer.valueOf(eng));
+            lastSelected.setCpu(Integer.valueOf(cpu));
+            lastSelected.calculateAvg();
+
+            adapter.notifyDataSetChanged();
+            Toast.makeText(this,"נתון נשמר", Toast.LENGTH_LONG).show();
+
+
+        }
 
     }
 }

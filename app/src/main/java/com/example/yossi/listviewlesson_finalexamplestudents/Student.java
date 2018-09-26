@@ -56,6 +56,7 @@ public class Student {
     public void calculateAvg()
     {
         avg = (mat + eng + cpu)/3.0;
+
         DecimalFormat df = new DecimalFormat("#.##");
         avg = Double.valueOf(df.format(avg));
 

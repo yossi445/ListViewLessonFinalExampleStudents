@@ -137,15 +137,7 @@
       android:orientation="horizontal"
       android:layout_marginTop="10dp"
       >
-    <Button
-        android:id="@+id/btnCalc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="חשב ממוצע חדש"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-     />
+
 
       <Button
           android:id="@+id/btnSave"
@@ -165,8 +157,7 @@
         android:layout_height="wrap_content"
         android:text="ביטול"
         android:textSize="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+
         />
 
 
